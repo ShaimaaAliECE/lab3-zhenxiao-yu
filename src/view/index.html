@@ -10,11 +10,16 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="">
+        <!-- css -->
         <style>
             body {
                 background-color: rgb(251, 255, 255); 
                 text-align: center;
                 font-family: 'Roboto', sans-serif;
+            }
+            .wrapper{
+                width: 50%;
+                margin: auto;
             }
             .page-title{
                 margin-top:30px;
@@ -42,41 +47,55 @@
                 border: none;
                 font-weight: bold;
                 cursor: pointer;
-                width: 90%;
+                width: 80%;
             }
+            .guest_portal{
+                text-decoration: none;
+                color: rgba(7, 7, 7, 0.596);
+            }
+            .show-box{
+                display: block;
+                margin: 20px 0;
+            }
+            .show-button{
+                background-color: #eb9627;
+                color: white;
+                padding: 12px 16px;
+                margin: 8px 0;
+                border: none;
+                font-weight: bold;
+                cursor: pointer;
+                width: 100%;
+            }
+            
         </style>
     </head>
+
     <body>
-        <p class="page-title">Welcome! Please Login as Administrator</p> 
-
-
-        <form class="form" action = '/login' method='get'> 
-            <div class="field">Username : <input name = 'usr' type = 'text' placeholder="admin"/></div>
-            <div class="field">Password : <input name = 'pwd' type = 'text' placeholder="123"/></div>
-            <input class ="submit" type = 'submit' value = 'Login'/>
-        </form>
-        <a href='/guest'>sign in as a guest</a>
-
-        <br/>
-        <br/>
-        <br/>
-
-        <div classname = 'timeTable'>
-            <form action = '/timeDisplay' method = 'get'>
-                <input type = 'submit' value = 'display the times'/>
+        <!-- wrapper for styling-->
+        <div class="wrapper">
+            <!-- welcoming message -->
+            <p class="page-title">Welcome! Please Login as Administrator</p> 
+            <div class="show-box">
+                <div classname = 'timeTable'>
+                    <form action = '/timeDisplay' method = 'get'>
+                        <input class="show-button" type = 'submit' value = 'See times'/>
+                     </form>
+                 </div>
+                <div classname = 'usersTable'>
+                    <form action = '/userDisplay' method = 'get'>
+                        <input class="show-button" type = 'submit' value = 'See user availability'/>
+                     </form>
+                </div>
+            </div>
+            <!-- login form -->
+            <form class="form" action = '/login' method='get'> 
+                <div class="field">Username : <input name = 'usr' type = 'text' placeholder="admin"/></div>
+                <div class="field">Password : <input name = 'pwd' type = 'text' placeholder="123"/></div>
+                <input class ="submit" type = 'submit' value = 'Login'/>
             </form>
+            <a class="guest_portal" href='/guest'>Not an admin? sign in as a guest</a>
+
         </div>
-
-        <br/>
-        <br/>
-        <br/>
-
-        <div classname = 'usersTable'>
-            <form action = '/userDisplay' method = 'get'>
-                <input type = 'submit' value = 'display the users with their availability'/>
-            </form>
-        </div>
-
-        
     </body>
 </html>
