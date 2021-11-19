@@ -13,12 +13,46 @@
                 text-align: center;
                 font-family: 'Roboto', sans-serif;
             }
+
+            .page-title{
+                margin-top:50px;
+                margin-bottom: 20px;
+                font-size: 28px;
+            }
+
             .wrapper{
                 width: 80%;
                 margin: auto;
             }
             .submit{
                 background-color: #04AA6D;
+                color: white;
+                padding: 12px 16px;
+                margin: 15px 0;
+                border: none;
+                font-weight: bold;
+                cursor: pointer;
+                width: 40%;
+            }
+            .back_portal{
+                text-decoration: none;
+                color: rgba(7, 7, 7, 0.596);
+            }
+            input[type=checkbox] {
+            /* Double-sized Checkboxes */
+            -ms-transform: scale(2); /* IE */
+            -moz-transform: scale(2); /* FF */
+            -webkit-transform: scale(2); /* Safari and Chrome */
+            -o-transform: scale(2); /* Opera */
+            transform: scale(2);
+            padding: 10px;
+            }
+            .show-box{
+                display: block;
+                margin: 20px 0;
+            }
+            .show-button{
+                background-color: #eb9627;
                 color: white;
                 padding: 12px 16px;
                 margin: 8px 0;
@@ -31,8 +65,22 @@
     </head>
     <body>
         <div class="wrapper">
+            <h2 class="page-title">Guest Page</h2>
+            <div class="show-box">
+                <div classname = 'timeTable'>
+                    <form action = '/timeDisplay' method = 'get'>
+                        <input class="show-button" type = 'submit' value = 'See times'/>
+                     </form>
+                 </div>
+                <div classname = 'usersTable'>
+                    <form action = '/userDisplay' method = 'get'>
+                        <input class="show-button" type = 'submit' value = 'See user availability'/>
+                     </form>
+                </div>
+            </div>
+            <p>Please enter your name availability:</p>
             <form action='/add-user'>
-                Name: <input name='name' type="text"/>
+                <input name='name' type="text" placeholder="your name"/>
                 <input name='T1' type="checkbox"/>
                 <input name='T2' type="checkbox"/>
                 <input name='T3' type="checkbox"/>
@@ -46,10 +94,7 @@
             </form>
             <input class="submit" type="submit" value = 'save'>
         </div>
-        
-        <br/>
-        <br/>
-        <br/>
-        <a href='/'>Click here to return to the homepage</a>
+
+        <a class="back_portal" href='/'>return</a>
     </body>
 </html>
