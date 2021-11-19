@@ -1,17 +1,17 @@
-//this is where i will initialize the database
-
+//using mysql
 const mysql = require('mysql');
 
+//create mysql connection
 const conn = mysql.createConnection({
     host:'34.133.82.124',
     user: 'root',
     password:'111111',
     database:'userDB'
 });
-
+//establish connection with db
 conn.connect();
 
-//if there are tables in place already then reset them
+//delete 
 conn.query(`Drop Table Time`,
                 (err,rows,fields) => {
                     if (err)
@@ -84,7 +84,7 @@ conn.query( `insert into Time values (0,1,2,3,5,6,7,8,9,10)`
                     console.log('One row inserted');
             });
 
-conn.query( `insert into Users values ('Example entry',1,1,1,1,1,1,1,1,1,1)`
+conn.query( `insert into Users values ('Bob',1,1,1,1,1,1,1,1,1,1)`
             , (err,rows,fields) => {
                 if (err)
                     console.log(err);

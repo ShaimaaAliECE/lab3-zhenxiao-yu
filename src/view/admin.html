@@ -32,7 +32,9 @@
                 border: none;
                 font-weight: bold;
                 cursor: pointer;
-                width: 40%;
+                width: 100%;
+                display: block;
+
             }
             .back_portal{
                 text-decoration: none;
@@ -61,6 +63,15 @@
                 cursor: pointer;
                 width: 40%;
             }
+            .add-time{
+                margin: auto;
+                width: 40%;
+            }
+            .time {
+                margin: 8px 0;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
+            }
         </style>
     </head>
     <body>
@@ -78,19 +89,19 @@
                      </form>
                 </div>
             </div>
-
-            <form action='/add-times'>
-                T1: <input name='T1'/>
-                T2: <input name='T2'/>
-                T3: <input name='T3'/>
-                T4: <input name='T4'/>
-                T5: <input name='T5'/>
-                T6: <input name='T6'/>
-                T7: <input name='T7'/>
-                T8: <input name='T8'/>
-                T9: <input name='T9'/>
-                T10: <input name='T10'/>
-                <input type="submit" value = 'save'>
+            <p>Set new Time: </p>
+            <form class="add-time" action='/add-times'>
+                <input class="time" name='T1' placeholder="new time slot 1"/>
+                <input class="time" name='T2' placeholder="new time slot 2"/>
+                <input class="time" name='T3' placeholder="new time slot 3"/>
+                <input class="time" name='T4' placeholder="new time slot 4"/>
+                <input class="time" name='T5' placeholder="new time slot 5"/>
+                <input class="time" name='T6' placeholder="new time slot 6"/>
+                <input class="time" name='T7' placeholder="new time slot 7"/>
+                <input class="time" name='T8' placeholder="new time slot 8"/>
+                <input class="time" name='T9' placeholder="new time slot 9"/>
+                <input class="time" name='T10' placeholder="new time slot 10"/>
+                <input class="submit" type="submit" value = 'submit new time'>
             </form>
 
             <p>Please enter your name availability:</p>
@@ -106,8 +117,8 @@
                 <input name='T8' type="checkbox"/>
                 <input name='T9' type="checkbox"/>
                 <input name='T10' type="checkbox"/>
+                <input class="submit" type="submit" value = 'save'>
             </form>
-            <input class="submit" type="submit" value = 'save'>
 
         </div>
         <a class="back_portal" href='/'>return</a>
