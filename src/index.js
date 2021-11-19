@@ -1,7 +1,8 @@
+//using express
 const express = require('express');
 const path = require('path');
 
-//this object can be used to create new db connections 
+//using dbConfig class to establish mysql connection
 const newConnection = require('./dbConfig');
 
 const app = express();
@@ -10,7 +11,7 @@ app.get('/timeDisplay', (req, res) => {
   let conn = newConnection();
   conn.connect();
   let timeList;
-  conn.query(`select * from Time`, (err,rows,fields) => {
+  conn.query(`select * from TimeSlot`, (err,rows,fields) => {
 
       if (err)
           res.send('ERROR: ' + err)
@@ -41,7 +42,7 @@ app.get('/userDisplay', (req, res) => {
   let conn = newConnection();
   conn.connect();
   let userList;
-  conn.query(`select * from Users`, (err,rows,fields) => {
+  conn.query(`select * from Availability`, (err,rows,fields) => {
 
       if (err)
           res.send('ERROR: ' +err)
@@ -100,7 +101,7 @@ app.get('/login', (req, res) => {
 app.get('/add-user', (req,res) => {
   let conn = newConnection();
   conn.connect();
-  conn.query(`insert into Users values ('${req.query.name}','${req.query.T1}','${req.query.T2}','${req.query.T3}','${req.query.T4}','${req.query.T5}','${req.query.T6}','${req.query.T7}','${req.query.T8}','${req.query.T9}','${req.query.T10}')`
+  conn.query(`insert into Availability values ('${req.query.name}','${req.query.T1}','${req.query.T2}','${req.query.T3}','${req.query.T4}','${req.query.T5}','${req.query.T6}','${req.query.T7}','${req.query.T8}','${req.query.T9}','${req.query.T10}')`
           ,(err,rows,fields) => {
               res.redirect('/userDisplay');        
           } );
@@ -111,7 +112,7 @@ app.get('/add-user', (req,res) => {
 app.get('/add-times', (req,res) => {
   let conn = newConnection();
   conn.connect();
-  conn.query( `UPDATE Time SET  T1 = '${req.query.T1}', T2 = '${req.query.T2}', T3 = '${req.query.T3}', T4 = '${req.query.T4}', T5 = '${req.query.T5}', T6 = '${req.query.T6}', T7 = '${req.query.T7}', T8 = '${req.query.T8}', T9 = '${req.query.T9}', T10 = '${req.query.T10}'`
+  conn.query( `UPDATE TimeSlot SET  T1 = '${req.query.T1}', T2 = '${req.query.T2}', T3 = '${req.query.T3}', T4 = '${req.query.T4}', T5 = '${req.query.T5}', T6 = '${req.query.T6}', T7 = '${req.query.T7}', T8 = '${req.query.T8}', T9 = '${req.query.T9}', T10 = '${req.query.T10}'`
           , (err,rows,fields) => {
               if (err)
                   console.log(err);

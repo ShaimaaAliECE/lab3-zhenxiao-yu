@@ -1,38 +1,33 @@
 //using mysql
-const mysql = require('mysql');
+const mysql = require("mysql");
 
 //create mysql connection
 const conn = mysql.createConnection({
-    host:'34.133.82.124',
-    user: 'root',
-    password:'111111',
-    database:'userDB'
+  host: "34.133.82.124",
+  user: "root",
+  password: "111111",
+  database: "userDB",
 });
+
 //establish connection with db
 conn.connect();
 
-//delete 
-conn.query(`Drop Table Time`,
-                (err,rows,fields) => {
-                    if (err)
-                        console.log(err);
-                    else
-                        console.log('Table Dropped');
-                }
-            )
+//reset db before creating new tables
+//drop TimeSlot table
+conn.query(`Drop Table TimeSlot`, (err, rows, fields) => {
+  if (err) console.log(err);
+  else console.log("Drop Table Success");
+});
 
-conn.query(`Drop Table Users`,
-            (err,rows,fields) => {
-                if (err)
-                    console.log(err);
-                else
-                    console.log('Table Dropped');
-            }
-        )
+//drop Availability table
+conn.query(`Drop Table Availability`, (err, rows, fields) => {
+  if (err) console.log(err);
+  else console.log("Drop Table success");
+});
 
-
-//init the time table with values that only the admin user can edit
-conn.query(`CREATE TABLE Time
+//create TimeSlot table
+conn.query(
+  `CREATE TABLE TimeSlot
             (
                 T1 varchar(50),
                 T2 varchar(50),
@@ -45,16 +40,17 @@ conn.query(`CREATE TABLE Time
                 T9 varchar(50),
                 T10 varchar(50)
             )
-            ` 
-            , (err,rows,fields) => {
-                if (err)
-                    console.log(err);
-                else
-                    console.log('Table Created');
-            })
+            `,
+  (err, rows, fields) => {
+    if (err) console.log(err);
+    else console.log("Table Created");
+  }
+);
 
-//the int data type is used to represent the true = 1 and false = 0
-conn.query(`CREATE TABLE Users
+
+//create Availability table
+conn.query(
+  `CREATE TABLE Availability
             (
                 Name varchar(100),
                 T1 varchar(100),
@@ -68,29 +64,28 @@ conn.query(`CREATE TABLE Users
                 T9 varchar(100),
                 T10 varchar(100)
             )
-            ` 
-            , (err,rows,fields) => {
-                if (err)
-                    console.log(err);
-                else
-                    console.log('Table Created');
-            })
+            `,
+  (err, rows, fields) => {
+    if (err) console.log(err);
+    else console.log("Table Created");
+  }
+);
 
-conn.query( `insert into Time values (0,1,2,3,5,6,7,8,9,10)`
-            , (err,rows,fields) => {
-                if (err)
-                    console.log(err);
-                else
-                    console.log('One row inserted');
-            });
+//populate the tables with sample data
+conn.query(
+  `insert into Availability values ('Bob',1,1,0,0,1,0,0,1,0,1)`,
+  (err, rows, fields) => {
+    if (err) console.log(err);
+    else console.log("Inserted sample data into Availability");
+  }
+);
 
-conn.query( `insert into Users values ('Bob',1,1,1,1,1,1,1,1,1,1)`
-            , (err,rows,fields) => {
-                if (err)
-                    console.log(err);
-                else
-                    console.log('One row inserted');
-            });
-
+conn.query(
+    `insert into TimeSlot values (1,2,3,4,5,6,7,8,9,10)`,
+    (err, rows, fields) => {
+      if (err) console.log(err);
+      else console.log("Inserted sample data into TimeSlot");
+    }
+);
 
 conn.end();

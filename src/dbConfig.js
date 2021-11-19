@@ -1,6 +1,7 @@
-
+//using mysql
 const mysql = require('mysql');
 
+//create connection to mysql db
 function newConnection()
 {
     let conn = mysql.createConnection({
@@ -12,4 +13,5 @@ function newConnection()
     return conn;
 }
 
+//export module 
 module.exports = newConnection;
