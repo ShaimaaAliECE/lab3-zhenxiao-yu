@@ -59,7 +59,7 @@ app.get('/userDisplay', (req, res) => {
               content += '\n';
           }
           content += '<br/>';
-          content += `<a href='/'>Click here to return to the homepage</a>`;
+          content += `<a href='/'>return to the home</a>`;
 
           res.send(content);
       }

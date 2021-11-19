@@ -6,26 +6,36 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>3316-Lab3</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="">
+        <style>
+            body {
+                background-color: rgb(213, 214, 214); 
+                text-align: center;
+                font-family: 'Roboto', sans-serif;
+            }
+            .page-title{
+                margin-top:30px;
+                margin-bottom: 20px;
+                font-size: 26px;
+            }
+            .field {
+                margin: 10px;
+            }
+        </style>
     </head>
     <body>
-        <h2>Welcome to Doodle App</h2> 
+        <p class="page-title">Welcome! </p> 
 
-        <br/>
-        <br>
-        <br>
-        <br>
-
-        <hr>
-
-        <br/>
 
         <form action = '/login' method='get'> 
-            <div>Username : <input name = 'usr' type = 'text'/></div>
-            <div>Password : <input name = 'pwd' type = 'text'/></div>
-            <input type = 'submit' value = 'Login'/>
+            <div class="field">Username : <input name = 'usr' type = 'text'/></div>
+            <div class="field">Password : <input name = 'pwd' type = 'text'/></div>
+            <input class ="submit" type = 'submit' value = 'Login'/>
         </form>
-        <a href='/guest'>Click here to sign in as a guest</a>
+        <a href='/guest'>sign in as a guest</a>
 
         <br/>
         <br/>
