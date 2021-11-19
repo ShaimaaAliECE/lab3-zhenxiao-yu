@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>3316-Lab3</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h2>Welcome to Doodle App</h2> 
+
+        <br/>
+        <br>
+        <br>
+        <br>
+
+        <hr>
+
+        <br/>
+
+        <form action = '/login' method='get'> 
+            <div>Username : <input name = 'usr' type = 'text'/></div>
+            <div>Password : <input name = 'pwd' type = 'text'/></div>
+            <input type = 'submit' value = 'Login'/>
+        </form>
+        <a href='/guest'>Click here to sign in as a guest</a>
+
+        <br/>
+        <br/>
+        <br/>
+
+        <div classname = 'timeTable'>
+            <form action = '/timeDisplay' method = 'get'>
+                <input type = 'submit' value = 'display the times'/>
+            </form>
+        </div>
+
+        <br/>
+        <br/>
+        <br/>
+
+        <div classname = 'usersTable'>
+            <form action = '/userDisplay' method = 'get'>
+                <input type = 'submit' value = 'display the users with their availability'/>
+            </form>
+        </div>
+
+        
+    </body>
+</html>

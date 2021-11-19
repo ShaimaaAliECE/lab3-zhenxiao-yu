@@ -4,7 +4,7 @@
   "description": "lab3-zhenxiao-yu created by GitHub Classroom",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./src/app.js",
+    "start": "nodemon ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/ShaimaaAliECE/lab3-zhenxiao-yu#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
