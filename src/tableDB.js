@@ -3,6 +3,8 @@ const newConnection = require("./dbConfig");
 const conn = newConnection();
 
 //get data from database
+
+
 conn.query(`select * from TimeSlot `, (err, rows, fields) => {
   for (r of rows) console.log(r);
 });
