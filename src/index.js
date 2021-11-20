@@ -56,33 +56,49 @@ app.get("/userDisplay", (req, res) => {
       userList = rows;
       //define empty variable for storing content
       let content = "";
+      content += "</br>" + "</br>" +"</br>" + "</br>" + "</br>" +"</br>" + "</br>" + "</br>" +"</br>";
+      content += "</br>" + "</br>" +"</br>" + "</br>" + "</br>" +"</br>" + "</br>" + "</br>" +"</br>";
+     
       for (u of userList) {
-        content += `<div style="text-align: center; font-size: 20px; font-weight: bold; font-family: 'Roboto', sans-serif; background-color: rgb(251, 255, 255); margin-top:5px"`;
+
+        // convert checkbox value to yes or no
+        const T1 = u.T1=="on"?"YES ":"NO ";
+        const T2 = u.T2=="on"?"YES ":"NO ";
+        const T3 = u.T3=="on"?"YES ":"NO ";
+        const T4 = u.T4=="on"?"YES ":"NO ";
+        const T5 = u.T5=="on"?"YES ":"NO ";
+        const T6 = u.T6=="on"?"YES ":"NO ";
+        const T7 = u.T7=="on"?"YES ":"NO ";
+        const T8 = u.T8=="on"?"YES ":"NO ";
+        const T9 = u.T9=="on"?"YES ":"NO ";
+        const T10 = u.T10=="on"?"YES ":"NO ";
+
+        content += `<div style="text-align: center; font-size: 13px; font-weight: 500; font-family: 'Roboto', sans-serif; background-color: rgb(251, 255, 255); margin-top:20px"`;
+        //display user name 
         content+=`<div>`
         content +=
           u.Name +
-          " : " +
-          u.T1 +
-          " : " +
-          u.T2 +
-          " : " +
-          u.T3 +
-          " : " +
-          u.T4 +
-          " : " +
-          u.T5 +
-          " : " +
-          u.T6 +
-          " : " +
-          u.T7 +
-          " : " +
-          u.T8 +
-          " : " +
-          u.T9 +
-          " : " +
-          u.T10;
+          ": Time Slot 1 - " +
+          T1 + "|" +
+          " Time Slot 2 - " +
+          T2 + "|" +
+          " Time Slot 3 - " +
+          T3 + "|" +
+          " Time Slot 4 - " +
+          T4 + "|" +
+          " Time Slot 5 - " +
+          T5 + "|" +
+          " Time Slot 6 - " +
+          T6 + "|" +
+          " Time Slot 7 - " +
+          T7 + "|" +
+          " Time Slot 8 - " +
+          T8 + "|" +
+          " Time Slot 9 - " +
+          T9 + "|" +
+          " Time Slot 10 - " +
+          T10;
         content+=`</div>`
-        content += "\n";
         content += "\n";
       }
       content += "<br/>";
